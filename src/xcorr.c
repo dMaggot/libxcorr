@@ -23,7 +23,9 @@ void xcorr(fftw_complex * signala, fftw_complex * signalb, fftw_complex * result
     fftw_execute(pa);
     fftw_execute(pb);
 
-    fftw_complex scale = 1.0/(2 * N -1);
+    // fftw_complex scale = 1.0/(2 * N -1);
+    fftw_complex scale = 1.0 / (N * N);
+
     for (int i = 0; i < 2 * N - 1; i++)
         out[i] = outa[i] * conj(outb[i]) * scale;
 
